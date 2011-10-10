@@ -1,0 +1,32 @@
+{
+  // Required
+  "name": "Sitecore Defect Viewer",
+  "version": "0.1",
+
+  // Recommended
+  "description": "Allows one to view defect by selecting its ID on the page and pressing SDV button on the toolbar.",
+  "icons": { 
+    "128": "128.png" 
+  },
+
+  // Pick one (or none)
+  "browser_action": {
+    "default_icon" : "16.png",
+    "name" : "Go to selected defect ID"
+  },
+  // "page_action": {...},
+  // "theme": {...},
+  // "app": {...},
+
+  "content_scripts": [
+    {
+        "matches": [ "*://*.sitecore.net/*" ],
+        "js" : ["content_script.js"] 
+    }
+  ],
+
+  // Add any of these that you need
+  "background_page": "background.html",
+  "permissions" : [ "tabs", "clipboardRead" ]
+}
+

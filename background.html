@@ -1,0 +1,18 @@
+<html>
+    <head>
+        <script type="text/javascript">
+            chrome.browserAction.onClicked.addListener(function(tab) {
+              chrome.tabs.sendRequest(tab.id, {method: "getSelection"}, function(response){
+                 sendServiceRequest(response.data);
+              });
+            });
+
+            function sendServiceRequest(selectedText) {
+              var serviceCall = 'https://support.sitecore.net/client/Defects/ViewDefect.aspx?DefectId=' + selectedText;
+              chrome.tabs.create({url: serviceCall});
+            };
+        </script>
+    </head>
+    <body>
+    </body>
+</html>
